@@ -121,17 +121,9 @@ function addMealToDOM(meal) {
 submit.addEventListener("submit", searchMeal);
 random.addEventListener('click',randomMeal);
 mealsEl.addEventListener("click", (e) => {
-  const mealInfo = e.path.find((item) => {
-    if (item.classList) {
-      return item.classList.contains("meal-info");
-    } else {
-      return false;
-    }
-  });
+  const mealInfo = e.target.closest(".meal-info");
   if (mealInfo) {
-    const mealID = mealInfo.getAttribute(
-      "data-mealid"
-    );
+    const mealID = mealInfo.getAttribute("data-mealid");
     getMealById(mealID);
   }
 });
